@@ -8,7 +8,7 @@ app.use(express.json())
 
 // trả JSON cho mọi request
 app.get('/api/vhr/utility/v0/utility/84/booking-time', (req, res) => {
-  console.log(req.req.query)
+  console.log(req.query)
   res.json({
     message: null,
     code: null,
