@@ -15,11 +15,11 @@ app.get('/api/vhr/utility/v0/utility/84/booking-time', (req, res) => {
   const bd = Number(bookingDate)
   const date = moment(bd).format('DD/MM/YYYY HH:mm:ss')
   console.log(date)
-  console.log(moment(1773356400000).format('DD/MM/YYYY HH:mm:ss'), moment(bd).subtract(1, 'hour').valueOf())
-  console.log(moment(1773360000000).format('DD/MM/YYYY HH:mm:ss'))
-  console.log(moment(1773363600000).format('DD/MM/YYYY HH:mm:ss'))
-  console.log(moment(1773367200000).format('DD/MM/YYYY HH:mm:ss'))
-  console.log(moment(1773370800000).format('DD/MM/YYYY HH:mm:ss'))
+  // console.log(moment(1773356400000).format('DD/MM/YYYY HH:mm:ss'), moment(bd).subtract(1, 'hour').valueOf())
+  // console.log(moment(1773360000000).format('DD/MM/YYYY HH:mm:ss'))
+  // console.log(moment(1773363600000).format('DD/MM/YYYY HH:mm:ss'))
+  // console.log(moment(1773367200000).format('DD/MM/YYYY HH:mm:ss'))
+  // console.log(moment(1773370800000).format('DD/MM/YYYY HH:mm:ss'))
   res.json({
     message: null,
     code: null,
