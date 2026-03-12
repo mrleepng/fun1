@@ -9,6 +9,10 @@ app.use(morgan('dev'))
 // middleware parse json
 app.use(express.json())
 
+app.get('/', (req, res) => {
+  res.json({ status: 'Server working now!' })
+})
+
 // trả JSON cho mọi request
 app.get('/api/vhr/utility/v0/utility/84/booking-time', (req, res) => {
   const { bookingDate } = req.query
