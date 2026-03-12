@@ -14,7 +14,7 @@ app.get('/api/vhr/utility/v0/utility/84/booking-time', (req, res) => {
   const { bookingDate } = req.query
   const bd = Number(bookingDate)
   const date = moment(bd).format('DD/MM/YYYY HH:mm:ss')
-  console.log(date)
+  console.log('req.query.bookingDate =', date)
   // console.log(moment(1773356400000).format('DD/MM/YYYY HH:mm:ss'), moment(bd).subtract(1, 'hour').valueOf())
   // console.log(moment(1773360000000).format('DD/MM/YYYY HH:mm:ss'))
   // console.log(moment(1773363600000).format('DD/MM/YYYY HH:mm:ss'))
@@ -58,6 +58,20 @@ app.get('/api/vhr/utility/v0/utility/84/booking-time', (req, res) => {
   })
 })
 
+app.get('/api/vhr/utility/v0/utility/84/places', (req, res) => {
+  console.log('req.query =', req.query)
+  res.json({
+  message: null,
+  code: null,
+  data: [
+    { id: 861, placeUtilityId: 692, code: null, name: "Sân Tennis Công Viên số 01", nameEn: null, description: null, monthlyTicket: false, isFull: false, linkDigitalMap: null },
+    { id: 862, placeUtilityId: 691, code: null, name: "Sân Tennis Công Viên số 02", nameEn: null, description: null, monthlyTicket: false, isFull: false, linkDigitalMap: null },
+    { id: 859, placeUtilityId: 694, code: null, name: "Sân Tennis Vinschool số 01", nameEn: null, description: null, monthlyTicket: false, isFull: false, linkDigitalMap: null },
+    { id: 860,  placeUtilityId: 693, code: null, name: "Sân Tennis Vinschool số 02", nameEn: null, description: null, monthlyTicket: false, isFull: false, linkDigitalMap: null }
+  ]})
+})
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
+
