@@ -3,7 +3,7 @@ const morgan = require('morgan')
 const moment = require('moment')
 
 const app = express()
-const PORT = 3000
+const PORT = 80
 
 app.use(morgan('dev')) 
 // middleware parse json
