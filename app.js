@@ -18,12 +18,12 @@ gentimes(tomorrowSt)
 
 app.get('/', (req, res) => {
   res.send(`
-    <p>To day booking times: ${todaySt} -> ${dateformat(todaySt)}</p>
+    <p>Today booking times: ${todaySt} -> ${dateformat(todaySt)}</p>
     <textarea id="todaySt" rows="10" cols="50">${gentimes(todaySt)}</textarea>
     <br><br>
     <button onclick="myFunction('todaySt')">Copy</button>
     <br><br><br>
-    <p>Tomorrow day booking times: ${tomorrowSt} -> ${dateformat(tomorrowSt)}</p>
+    <p>Tomorrow booking times: ${tomorrowSt} -> ${dateformat(tomorrowSt)}</p>
     <textarea id="tomorrowSt" rows="10" cols="50">${gentimes(tomorrowSt)}</textarea>
     <br><br>
     <button onclick="myFunction('tomorrowSt')">Copy</button>
