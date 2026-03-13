@@ -75,7 +75,24 @@ app.get('/api/vhr/utility/v0/utility/84/places', (req, res) => {
   ]})
 })
 
+function genSt(bd) {
+  const msg = {
+    message: null,
+    code: null,
+    data: [
+      {"id":631,"utilityId":84,"fromTime": moment(bd).subtract(1, 'hour').valueOf(), "toTime": bd,"applyAllDays":true,"dayApplied":null,"isFull":false}, // 6 - 7
+      {"id":632,"utilityId":84,"fromTime": bd,"toTime": moment(bd).add(1, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false} // 7 - 8
+    ]
+  }
+  console.log(JSON.stringify(msg))
+}
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
 
+// console.log(1773446400000)
+
+const tomorrowSt = moment().startOf('day').add(1, 'days').add(7, 'hours').valueOf()
+console.log(tomorrowSt)
+genSt(tomorrowSt)
