@@ -31,13 +31,15 @@ app.get('/', (req, res) => {
     <script type="text/javascript">
       function myFunction(id) {
         var element = document.getElementById(id);
-        navigator.clipboard.writeText(element.value)
-          .then(() => {
-            alert('Copie');
-          })
-          .catch(err => {
-            alert('Could not copy text: ', err);
-          });
+        element.select();
+        document.execCommand("copy");
+        // navigator.clipboard.writeText(element.value)
+        //   .then(() => {
+        //     alert('Copie');
+        //   })
+        //   .catch(err => {
+        //     alert('Could not copy text: ', err);
+        //   });
       }
     </script>
   `)
