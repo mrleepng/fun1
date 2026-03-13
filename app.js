@@ -19,15 +19,20 @@ gentimes(tomorrowSt)
 app.get('/', (req, res) => {
   res.send(`
     <p>To day booking times: ${todaySt} -> ${dateformat(todaySt)}</p>
-    <textarea rows="10" cols="50" id="txtarea" onclick="myFunction(this)">${gentimes(todaySt)}</textarea>
+    <textarea id="todaySt" rows="10" cols="50">${gentimes(todaySt)}</textarea>
+    <br><br>
+    <button onclick="myFunction('todaySt')">Copy</button>
     <br><br><br>
     <p>Tomorrow day booking times: ${tomorrowSt} -> ${dateformat(tomorrowSt)}</p>
-    <textarea rows="10" cols="50" id="txtarea" onclick="myFunction(this)">${gentimes(tomorrowSt)}</textarea>
+    <textarea id="tomorrowSt" rows="10" cols="50">${gentimes(tomorrowSt)}</textarea>
+    <br><br>
+    <button onclick="myFunction('tomorrowSt')">Copy</button>
+    <br><br><br>
     <script type="text/javascript">
-      function myFunction(element) {
+      function myFunction(id) {
+        var element = document.getElementById(id);
         navigator.clipboard.writeText(element.value)
           .then(() => {
-            // Optional: Alert the user or provide feedback
             alert('Copie');
           })
           .catch(err => {
