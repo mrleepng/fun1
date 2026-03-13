@@ -76,12 +76,34 @@ app.get('/api/vhr/utility/v0/utility/84/places', (req, res) => {
 })
 
 function genSt(bd) {
+
+  const data = []
+  let num = 631
+  for (let i = -1; i < 15; i++) {
+    if (i === 5 || i === 6) continue;
+    data.push({id: num++, utilityId: 84, fromTime: moment(bd).add(i, 'hour').valueOf(), toTime: moment(bd).add(i + 1, 'hour').valueOf(), applyAllDays: true, dayApplied: null, isFull: false})
+  }
+  // console.log(JSON.stringify(data))
+  console.log(data)
+
   const msg = {
     message: null,
     code: null,
     data: [
       {"id":631,"utilityId":84,"fromTime": moment(bd).subtract(1, 'hour').valueOf(), "toTime": bd,"applyAllDays":true,"dayApplied":null,"isFull":false}, // 6 - 7
-      {"id":632,"utilityId":84,"fromTime": bd,"toTime": moment(bd).add(1, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false} // 7 - 8
+      {"id":632,"utilityId":84,"fromTime": bd,"toTime": moment(bd).add(1, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 7 - 8
+      {"id":633,"utilityId":84,"fromTime": moment(bd).add(1, 'hour').valueOf(),"toTime": moment(bd).add(2, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 8 - 9
+      {"id":634,"utilityId":84,"fromTime": moment(bd).add(2, 'hour').valueOf(),"toTime": moment(bd).add(3, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 9 - 10
+      {"id":635,"utilityId":84,"fromTime": moment(bd).add(3, 'hour').valueOf(),"toTime": moment(bd).add(4, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 10 - 11
+      {"id":636,"utilityId":84,"fromTime": moment(bd).add(4, 'hour').valueOf(),"toTime": moment(bd).add(5, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 11 - 12
+      {"id":637,"utilityId":84,"fromTime": moment(bd).add(7, 'hour').valueOf(),"toTime": moment(bd).add(8, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 14 - 15
+      {"id":638,"utilityId":84,"fromTime": moment(bd).add(8, 'hour').valueOf(),"toTime": moment(bd).add(9, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 15 - 16
+      {"id":639,"utilityId":84,"fromTime": moment(bd).add(9, 'hour').valueOf(),"toTime": moment(bd).add(10, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 16 - 17
+      {"id":640,"utilityId":84,"fromTime": moment(bd).add(10, 'hour').valueOf(),"toTime": moment(bd).add(11, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 17 - 18
+      {"id":641,"utilityId":84,"fromTime": moment(bd).add(11, 'hour').valueOf(),"toTime": moment(bd).add(12, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 18 - 19
+      {"id":642,"utilityId":84,"fromTime": moment(bd).add(12, 'hour').valueOf(),"toTime": moment(bd).add(13, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 19 - 20
+      {"id":643,"utilityId":84,"fromTime": moment(bd).add(13, 'hour').valueOf(),"toTime": moment(bd).add(14, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}, // 20 - 21
+      {"id":644,"utilityId":84,"fromTime": moment(bd).add(14, 'hour').valueOf(),"toTime": moment(bd).add(15, 'hour').valueOf(),"applyAllDays":true,"dayApplied":null,"isFull":false}  // 21 - 22
     ]
   }
   console.log(JSON.stringify(msg))
@@ -93,6 +115,7 @@ app.listen(PORT, () => {
 
 // console.log(1773446400000)
 
-const tomorrowSt = moment().startOf('day').add(1, 'days').add(7, 'hours').valueOf()
-console.log(tomorrowSt)
-genSt(tomorrowSt)
+const st = moment().startOf('day').add(7, 'hours').valueOf()
+// const st = moment().startOf('day').add(1, 'days').add(7, 'hours').valueOf()
+console.log(st, moment(st).format('DD/MM/YYYY HH:mm:ss'))
+genSt(st)
