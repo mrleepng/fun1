@@ -33,13 +33,6 @@ app.get('/', (req, res) => {
         var element = document.getElementById(id);
         element.select();
         document.execCommand("copy");
-        // navigator.clipboard.writeText(element.value)
-        //   .then(() => {
-        //     alert('Copie');
-        //   })
-        //   .catch(err => {
-        //     alert('Could not copy text: ', err);
-        //   });
       }
     </script>
   `)
