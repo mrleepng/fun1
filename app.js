@@ -11,12 +11,11 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 
-const todaySt = moment().startOf('day').add(7, 'hours').valueOf()
-const tomorrowSt = moment().startOf('day').add(1, 'days').add(7, 'hours').valueOf()
-gentimes(tomorrowSt)
-
 
 app.get('/', (req, res) => {
+  const todaySt = moment().startOf('day').add(7, 'hours').valueOf()
+  const tomorrowSt = moment().startOf('day').add(1, 'days').add(7, 'hours').valueOf()
+  gentimes(tomorrowSt)
   res.send(`
     <p>Today booking times: ${todaySt} -> ${dateformat(todaySt)}</p>
     <textarea id="todaySt" rows="10" cols="50">${gentimes(todaySt)}</textarea>
